@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>북아메리카 여행 탐험</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #ef4444;
+      --bg: #f8fafc;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Pretendard', system-ui, sans-serif;
+      background: var(--bg);
+      color: #1e293b;
+      line-height: 1.6;
+    }
+
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1485738422979-f5c462d49f74?auto=format&fit=crop&w=1600&q=80') center/cover;
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      position: relative;
+      padding-bottom: 60px;
+    }
+
+    .back-btn {
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      padding: 10px 20px;
+      border-radius: 999px;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transition: 0.3s;
+      z-index: 100;
+    }
+
+    .back-btn:hover {
+      background: rgba(255, 255, 255, 0.4);
+      transform: translateX(-5px);
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 15px;
+      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero p {
+      opacity: 0.9;
+      font-size: 1.25rem;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: -80px auto 60px;
+      padding: 0 20px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .search-box {
+      background: white;
+      padding: 25px;
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      margin-bottom: 40px;
+    }
+
+    input {
+      width: 100%;
+      padding: 16px 24px;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      font-size: 18px;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 30px;
+      align-items: stretch;
+    }
+
+    .card {
+      background: white;
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #f1f5f9;
+      height: 100%;
+    }
+
+    .card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+    }
+
+    .title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: #0f172a;
+      min-height: 3.4rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .tag {
+      font-size: 11px;
+      background: #fef2f2;
+      color: #dc2626;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+
+    .desc {
+      font-size: 0.95rem;
+      color: #475569;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 14px;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      text-align: center;
+      transition: 0.3s;
+      margin-top: auto;
+    }
+
+    .btn:hover {
+      background: #dc2626;
+      box-shadow: 0 10px 20px rgba(239, 68, 68, 0.3);
+    }
+
+    @media (max-width: 640px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="hero">
+    <a href="world_map.html" class="back-btn">← 지도로 돌아가기</a>
+    <h1>북아메리카 여행 탐험</h1>
+    <p>화려한 마천루와 광활한 대자연이 어우러진 꿈의 목적지</p>
+  </div>
+
+  <main>
+    <div class="search-box">
+      <input id="q" type="search" placeholder="도시, 랜드마크, 자연경관을 검색해 보세요..." />
+    </div>
+    <div id="grid" class="grid">
+      <article class="card">
+        <div class="title">뉴욕(미국) — New York City in 5 minutes</div>
+        <div class="tags"><span class="tag">도시</span><span class="tag">≤ 5분</span></div>
+        <div class="desc">타임스스퀘어·스카이라인 등 “대도시 상징”을 한 번에.</div>
+        <a class="btn" target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Ix9B4pJmQdE">영상 바로가기</a>
+      </article>
+
+      <article class="card">
+        <div class="title">샌프란시스코(미국) — San Francisco in 5 minutes</div>
+        <div class="tags"><span class="tag">도시</span><span class="tag">≤ 5분</span></div>
+        <div class="desc">골든게이트 등 “도시 랜드마크 중심” 빠른 소개.</div>
+        <a class="btn" target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4jQZ0jG9z4k">영상 바로가기</a>
+      </article>
+
+      <article class="card">
+        <div class="title">라스베이거스(미국) — Las Vegas in 5 minutes</div>
+        <div class="tags"><span class="tag">도시</span><span class="tag">≤ 5분</span></div>
+        <div class="desc">엔터테인먼트 도시의 특징(야경/스트립)을 짧게 파악.</div>
+        <a class="btn" target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H7oO8T7n0mE">영상 바로가기</a>
+      </article>
+
+      <article class="card">
+        <div class="title">로스앤젤레스(미국) — Los Angeles in 5 minutes</div>
+        <div class="tags"><span class="tag">도시</span><span class="tag">≤ 5분</span></div>
+        <div class="desc">헐리우드·해변·도시 스팟을 압축(관광 동선 상기용).</div>
+        <a class="btn" target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=YqC3cYwq4kA">영상 바로가기</a>
+      </article>
+
+      <article class="card">
+        <div class="title">워싱턴 D.C.(미국) — Washington DC in 5 minutes</div>
+        <div class="tags"><span class="tag">도시</span><span class="tag">≤ 5분</span></div>
+        <div class="desc">기념관·박물관 중심 “수도 관광의 대표”로 비교하기 좋음.</div>
+        <a class="btn" target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=YyS3Zg9a0nA">영상 바로가기</a>
+      </article>
+
+      <article class="card">
+        <div class="title">마이애미(미국) — Miami in 5 minutes</div>
+        <div class="tags"><span class="tag">도시/해변</span><span class="tag">≤ 5분</span></div>
+        <div class="desc">휴양·해변 도시의 이미지 대비(도시여행 vs 휴양여행).</div>
+        <a class="btn" target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Z5o6f2C0XWw">영상 바로가기</a>
+      </article>
+
+      <article class="card">
+        <div class="title">토론토(캐나다) — Toronto in 5 minutes</div>
+        <div class="tags"><span class="tag">도시</span><span class="tag">≤ 5분</span></div>
+        <div class="desc">CN타워 등 “캐나다 대도시” 대표 장면을 빠르게.</div>
+        <a class="btn" target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4mCqJ7b0y4g">영상 바로가기</a>
+      </article>
+
+      <article class="card">
+        <div class="title">나이아가라 폭포(미국/캐나다) — Niagara Falls in 5 minutes</div>
+        <div class="tags"><span class="tag">자연</span><span class="tag">≤ 5분</span></div>
+        <div class="desc">“자연 관광지” 사례로 도시관광과 비교 활동에 딱.</div>
+        <a class="btn" target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=H4m2eP9g8cQ">영상 바로가기</a>
+      </article>
+
+      <article class="card">
+        <div class="title">칸쿤(멕시코) — Cancun in 5 minutes</div>
+        <div class="tags"><span class="tag">휴양지</span><span class="tag">≤ 5분</span></div>
+        <div class="desc">해변 휴양지의 전형(리조트/바다) 빠른 파악.</div>
+        <a class="btn" target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0ZkzK3aS2wY">영상 바로가기</a>
+      </article>
+
+      <article class="card">
+        <div class="title">그랜드 캐니언(미국) — Grand Canyon South Rim in 5 minutes</div>
+        <div class="tags"><span class="tag">자연</span><span class="tag">≤ 5분</span></div>
+        <div class="desc">“대자연 관광지” 대표. 짧게 감탄 포인트 공유하기 좋음.</div>
+        <a class="btn" target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=O1o0m9g0Xz8">영상 바로가기</a>
+      </article>
+    </div>
+  </main>
+
+  <script>
+    const q = document.getElementById("q");
+    const cards = document.querySelectorAll(".card");
+    q.addEventListener("input", function () {
+      const val = q.value.toLowerCase();
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        card.style.display = text.includes(val) ? "flex" : "none";
+      });
+    });
+  </script>
+</body>
+
+</html>

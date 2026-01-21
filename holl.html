@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>여행 키워드 채널 소개</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #6366f1;
+      --bg: #f8fafc;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Pretendard', system-ui, sans-serif;
+      background: var(--bg);
+      color: #1e293b;
+      line-height: 1.6;
+    }
+
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1600&q=80') center/cover;
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      position: relative;
+      padding-bottom: 60px;
+    }
+
+    .back-btn {
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      padding: 10px 20px;
+      border-radius: 999px;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transition: 0.3s;
+      z-index: 100;
+    }
+
+    .back-btn:hover {
+      background: rgba(255, 255, 255, 0.4);
+      transform: translateX(-5px);
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 15px;
+      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero p {
+      opacity: 0.9;
+      font-size: 1.25rem;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: -80px auto 60px;
+      padding: 0 20px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .controls {
+      background: white;
+      padding: 25px;
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      margin-bottom: 40px;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    input {
+      flex: 2;
+      min-width: 250px;
+      padding: 16px 24px;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      font-size: 18px;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    select {
+      flex: 1;
+      min-width: 150px;
+      padding: 0 20px;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      font-size: 16px;
+      background: white;
+      cursor: pointer;
+    }
+
+    input:focus,
+    select:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 30px;
+      align-items: stretch;
+    }
+
+    .card {
+      background: white;
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #f1f5f9;
+      height: 100%;
+    }
+
+    .card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+    }
+
+    .title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: #0f172a;
+      min-height: 3.4rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      line-clamp: 2;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .tag {
+      font-size: 11px;
+      background: #eef2ff;
+      color: #4f46e5;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+
+    .meta {
+      font-size: 0.9rem;
+      color: #64748b;
+      margin-bottom: 4px;
+    }
+
+    .meta-footer {
+      margin-top: auto;
+      padding-top: 20px;
+      border-top: 1px solid #f1f5f9;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 14px;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      text-align: center;
+      transition: 0.3s;
+      margin-top: 20px;
+    }
+
+    .btn:hover {
+      background: #4f46e5;
+      box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+    }
+
+    .footer {
+      margin-top: 40px;
+      text-align: center;
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .controls {
+        flex-direction: column;
+      }
+
+      input,
+      select {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="hero">
+    <a href="kore_holl_choice.html" class="back-btn">← 이전으로</a>
+    <h1>여행 키워드 채널 소개</h1>
+    <p>세계를 넓게 보는 다양한 관점과 유익한 여행 지식 채널들</p>
+  </div>
+
+  <main>
+    <div class="controls">
+      <input id="q" type="search" placeholder="제목, 키워드, 제작자를 검색해 보세요..." />
+      <select id="type">
+        <option value="">전체 유형</option>
+        <option value="Video">Video</option>
+        <option value="Playlist">Playlist</option>
+        <option value="Channel">Channel</option>
+        <option value="PlaylistsPage">PlaylistsPage</option>
+      </select>
+      <select id="lang">
+        <option value="">전체 언어</option>
+        <option value="ko">한국자료</option>
+        <option value="en">English</option>
+      </select>
+    </div>
+    <div id="grid" class="grid"></div>
+    <div class="footer">
+      ※ 이 페이지는 여행 학습을 위한 유용한 채널 리스트를 성격별로 분류한 것입니다.
+    </div>
+  </main>
+
+  <script>
+    const items = [
+      { id: "vid01", title: "[EBS] 세계테마기행", creator: "EBS Documentary", publisher: "EBS", subject: "여행; 세계문화; 다큐멘터리", type: "Playlist", language: "ko", url: "https://www.youtube.com/playlist?list=PLvNzObWMMx6vo3PlgF1y42VTUoO6ihSuW" },
+      { id: "vid02", title: "FULL VOD EBS 세계테마기행", creator: "EBS Documentary", publisher: "EBS", subject: "여행; 세계테마; 다큐", type: "Playlist", language: "ko", url: "https://www.youtube.com/playlist?list=PLvNzObWMMx6s3Vxm4dkJX7ZzJJJeyCMaZ" },
+      { id: "vid03", title: "FULL VOD EBS 한국기행", creator: "EBS Documentary", publisher: "EBS", subject: "여행; 국내여행; 지역; 다큐", type: "Playlist", language: "ko", url: "https://www.youtube.com/playlist?list=PLvNzObWMMx6u_SjJ1ajBfGqztk6SG078c" },
+      { id: "vid04", title: "KBS 트래블-걸어서 세계속으로", creator: "KBS", publisher: "KBS", subject: "여행; 세계여행; 다큐", type: "Channel", language: "ko", url: "https://www.youtube.com/channel/UCFw4M1BJYYdN1YtS8SzlDzg" },
+      { id: "vid05", title: "VISITKOREA 공식 채널", creator: "VISITKOREA", publisher: "한국관광공사", subject: "여행; 한국여행; 관광정보", type: "Channel", language: "ko", url: "https://www.youtube.com/@visitkorea" },
+      { id: "vid06", title: "VISITKOREA 재생목록", creator: "VISITKOREA", publisher: "한국관광공사", subject: "여행; 한국여행; 여행팁", type: "PlaylistsPage", language: "ko", url: "https://www.youtube.com/@visitkorea/playlists" },
+      { id: "vid07", title: "Hidden Beautiful Cities in Korea", creator: "VISITKOREA", publisher: "한국관광공사", subject: "여행; 국내여행; 숨은도시", type: "Playlist", language: "ko", url: "https://www.youtube.com/playlist?list=PLk0QRoNICLQotxqxqEYb_N3JBnXM4RNMQ" },
+      { id: "vid08", title: "[Not Seoul, But Korea] 강릉 편", creator: "VISITKOREA", publisher: "한국관광공사", subject: "여행; 국내여행; 강릉", type: "Video", language: "ko", url: "https://www.youtube.com/watch?v=cSQVLxJUU0c" },
+      { id: "vid09", title: "[Not Seoul, But Korea] 전통문화 도시", creator: "VISITKOREA", publisher: "한국관광공사", subject: "여행; 국내여행; 전통문화", type: "Video", language: "ko", url: "https://www.youtube.com/watch?v=s3iM8iMiCL4" },
+      { id: "vid10", title: "Imagine Your Korea", creator: "Imagine Your Korea", publisher: "한국관광 캠페인", subject: "여행; 한국여행; 관광캠페인", type: "Channel", language: "ko", url: "https://www.youtube.com/@imagineyourkorea" },
+      { id: "vid11", title: "[Arirang TV] 한국 지역 투어", creator: "Arirang TV", publisher: "Arirang TV", subject: "여행; 한국관광; 지역여행", type: "Video", language: "ko", url: "https://www.youtube.com/watch?v=HMKXTbzof1A" },
+      { id: "vid12", title: "ARIRANG LAND", creator: "Arirang TV", publisher: "Arirang TV", subject: "여행; 지역; 문화", type: "Playlist", language: "ko", url: "https://www.youtube.com/playlist?list=PLWdVPk7xgPCC5XKR5JZyGrqg7ua2bRDKY" },
+      { id: "vid13", title: "The GeoVista", creator: "Arirang TV", publisher: "Arirang TV", subject: "지리; 지역이해; 세계/한국", type: "Playlist", language: "en", url: "https://www.youtube.com/playlist?list=PLWdVPk7xgPCCQg-HhAtWxOf9WMTWHOqGt" },
+      { id: "vid14", title: "Arirang TV 재생목록", creator: "Arirang TV", publisher: "Arirang TV", subject: "한국; 문화; 지역", type: "PlaylistsPage", language: "en", url: "https://www.youtube.com/arirang/playlists" },
+      { id: "vid15", title: "VisitSeoul TV", creator: "VisitSeoul TV", publisher: "서울관광", subject: "여행; 서울여행; 관광팁", type: "Channel", language: "en", url: "https://www.youtube.com/c/VisitSeoulTV" },
+      { id: "vid16", title: "한국관광공사TV", creator: "한국관광공사TV", publisher: "한국관광공사", subject: "여행; 국내여행; 관광정보", type: "Channel", language: "ko", url: "https://www.youtube.com/@KTOkorea" },
+      { id: "vid17", title: "자전거 여행(남한강 꽃길)", creator: "YouTube", publisher: "YouTube", subject: "여행; 자전거여행; 국내여행", type: "Video", language: "ko", url: "https://www.youtube.com/watch?v=jkWY3zoWxfk" },
+      { id: "vid18", title: "빠니보틀 Pani Bottle", creator: "빠니보틀", publisher: "YouTube", subject: "여행; 세계여행; 브이로그", type: "Channel", language: "ko", url: "https://www.youtube.com/@PaniBottle" },
+      { id: "vid19", title: "곽튜브", creator: "곽튜브", publisher: "YouTube", subject: "여행; 세계여행; 브이로그", type: "Channel", language: "ko", url: "https://www.youtube.com/@JBKWAK" },
+      { id: "vid20", title: "EBS Documentary 채널", creator: "EBS Documentary", publisher: "EBS", subject: "여행; 다큐멘터리; 인문; 지리", type: "Channel", language: "ko", url: "https://www.youtube.com/@EBSDocumentary" }
+    ];
+
+    const grid = document.getElementById("grid");
+    const q = document.getElementById("q");
+    const type = document.getElementById("type");
+    const lang = document.getElementById("lang");
+
+    function escapeHtml(str) {
+      return String(str ?? "").replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m]));
+    }
+
+    function render() {
+      const query = q.value.trim().toLowerCase();
+      const typeVal = type.value;
+      const langVal = lang.value;
+
+      const filtered = items.filter(it => {
+        const hay = `${it.title} ${it.creator} ${it.publisher} ${it.subject}`.toLowerCase();
+        return (!query || hay.includes(query)) && (!typeVal || it.type === typeVal) && (!langVal || it.language === langVal);
+      });
+
+      grid.innerHTML = filtered.map(it => `
+        <div class="card">
+          <p class="title">${escapeHtml(it.title)}</p>
+          <div class="tags">
+            <span class="tag">${escapeHtml(it.type)}</span>
+            <span class="tag">🇰🇷 ${it.language === 'ko' ? '한국자료' : escapeHtml(it.language)}</span>
+            ${it.subject.split(";").map(s => `<span class="tag">${escapeHtml(s.trim())}</span>`).slice(0, 3).join("")}
+          </div>
+          <div class="meta-footer">
+            <p class="meta">제작: ${escapeHtml(it.creator)}</p>
+            <p class="meta">발행: ${escapeHtml(it.publisher)}</p>
+            <a class="btn" href="${it.url}" target="_blank" rel="noopener">채널 바로가기</a>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    q.addEventListener("input", render);
+    type.addEventListener("change", render);
+    lang.addEventListener("change", render);
+    render();
+  </script>
+</body>
+
+</html>
